@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html ng-app="todoApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="images/list.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <style type="text/css">
+        @import url(style/list.css);
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <script src="script/list.js"></script>
+    <title>MyList</title>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#" style="margin-right: 0;">
+        <img src="images/list.png" width="40" height="40" alt="">
+    </a>
+    <a class="navbar-brand title mx-auto">
+        MyList
+    </a>
+    <button class="btn btn-outline-dark my-2 my-sm-0 no-border" onclick="renameList()" type="submit"><i class="material-icons">edit</i>
+    </button>
+</nav>
+<div class="container mx-auto">
+    <div ng-controller="todoList">
+        <ul>
+            <li ng-repeat="todo in todos">
+                <a ng-click="removeTodo($index)"><i class="material-icons text-danger mr-3">remove_circle</i></a>
+                <label class="checkbox">
+                    <input type="checkbox" ng-model="todo.done">
+                    <span class="done-{{todo.done}}">{{todo.text}}</span>
+                </label>
+            </li>
+        </ul>
+        <form ng-submit="addTodo()">
+            <div class="row vertical-align">
+                <div class="col-9">
+                    <input type="text" ng-model="todoText" size="30"
+                           placeholder="new element" class="form-control">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-link new-element no-border btn-lg">
+                        <i class="material-icons">
+                            add_circle_outline
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <form ng-submit="cancelRemove()">
+            <div class="container">
+                <button type="submit" class="btn btn-lg btn-dark btn-block rounded-0 btn-bottom cancel-remove">
+                    Cancel delete
+                </button>
+            </div>
+        </form>
+        <form ng-show="deleted">
+            <button type="submit" class="btn btn-lg btn-primary btn-bottom save-list btn-block rounded-0">
+                Save this list
+            </button>
+        </form>
+    </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

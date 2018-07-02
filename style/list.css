@@ -1,0 +1,42 @@
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+nav {
+    margin-bottom: 10px;
+}
+
+.no-border{
+    border-color: transparent !important;
+}
+
+.no-border:hover {
+    color: #343a40 !important;
+    background-color: transparent !important;
+}
+
+.new-element{
+    vertical-align: middle;
+    color: dodgerblue !important;
+}
+
+.btn-bottom{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.material-icons {
+    vertical-align: middle !important;
+    line-height: unset !important;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
