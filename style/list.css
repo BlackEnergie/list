@@ -7,10 +7,6 @@ ul li {
     list-style-type: none;
 }
 
-nav {
-    margin-bottom: 10px;
-}
-
 .no-border{
     border-color: transparent !important;
 }

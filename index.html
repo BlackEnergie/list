@@ -22,25 +22,34 @@
     <a class="navbar-brand title mx-auto">
         MyList
     </a>
-    <button class="btn btn-outline-dark my-2 my-sm-0 no-border" onclick="renameList()" type="submit"><i class="material-icons">edit</i>
+    <button class="btn btn-outline-dark my-2 my-sm-0 no-border" onclick="renameList()" type="submit"><i
+            class="material-icons">edit</i>
     </button>
 </nav>
 <div class="container mx-auto">
     <div ng-controller="todoList">
-        <ul>
-            <li ng-repeat="todo in todos">
-                <a ng-click="removeTodo($index)"><i class="material-icons text-danger mr-3">remove_circle</i></a>
-                <label class="checkbox">
+        <table class="table">
+            <tbody>
+            <tr ng-repeat="todo in todos">
+                <td>
                     <input type="checkbox" ng-model="todo.done">
-                    <span class="done-{{todo.done}}">{{todo.text}}</span>
-                </label>
-            </li>
-        </ul>
+                </td>
+                <td>
+                    <label class="checkbox">
+                        <span class="done-{{todo.done}}">{{todo.text}}</span>
+                    </label>
+                </td>
+                <td>
+                    <a ng-click="removeTodo($index)"><i class="material-icons text-danger mr-3">remove_circle</i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
         <form ng-submit="addTodo()">
             <div class="row vertical-align">
                 <div class="col-9">
                     <input type="text" ng-model="todoText" size="30"
-                           placeholder="new element" class="form-control">
+                           placeholder="new element" class="form-control" maxlength="15">
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-link new-element no-border btn-lg">
